@@ -5,13 +5,13 @@
 <link href="https://webfontworld.github.io/naver/MaruBuri.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="visible.js"></script>
+<script src="js/visible.js"></script>
 
 <head>
     <meta name="viewport" charset="utf-8" content="width=device-width initial-scale=1 user-scalable=no">
     <title>보내는사람, 지구인</title>
     <style>
-        @import url("slider.css");
+        @import url("css/slider.css");
         body {
             background-color: #E3E3E3;
             width:100%;
@@ -83,7 +83,7 @@
         .main {
             width: 100%;
             height: 1031px;
-            background: url("그룹 37.png") no-repeat;
+            background: url("img/그룹 37.png") no-repeat;
             background-size: cover;
         }
 
@@ -102,7 +102,7 @@
             height: 5%;
             right: 8px;
             top: 10px;
-            background: url("hamburger2.png") no-repeat;
+            background: url("img/hamburger2.png") no-repeat;
             background-size: cover;
         }
 
@@ -132,7 +132,7 @@
             margin: 4.75em auto 1em;
             width: 3.5em;
             height: 2.18em;
-            background: url("letter.png") no-repeat;
+            background: url("img/letter.png") no-repeat;
             background-size: cover;
         }
 
@@ -196,7 +196,7 @@
         .plastic_img {
             width: 11.5625em;
             height: 11.5625em;
-            background: url("plastic-bag.png");
+            background: url("img/plastic-bag.png");
             background-size: cover;
         }
 
@@ -291,7 +291,7 @@
         .circle_img1 {
             width: 9.06em;
             height: 9.06em;
-            background: url("마스크그룹.png");
+            background: url("img/마스크그룹.png");
             background-size: cover;
             border-radius: 100%;
             border: 1px solid #707070;
@@ -301,7 +301,7 @@
         .circle_img2 {
             width: 9.06em;
             height: 9.06em;
-            background: url("마스크 택배.png");
+            background: url("img/마스크 택배.png");
             background-size: cover;
             border-radius: 100%;
             border: 1px solid #707070;
@@ -322,7 +322,7 @@
             width: 100%;
             height: 17em;
             position: relative;
-            background: url("foot.png") no-repeat;
+            background: url("img/foot.png") no-repeat;
             background-size: cover;
             display:none;
         }
@@ -350,7 +350,7 @@
             width: 23.5625em;
             height: 17.6875em;
             margin: 0 auto;
-            background: url("1\ [캡디]\ 사진_강태영\ 인터뷰.jpg");
+            background: url("img/1\ [캡디]\ 사진_강태영\ 인터뷰.jpg");
             background-size: cover;
         }
 
@@ -380,7 +380,7 @@
         .donguk {
             width: 10.375em;
             height: 10.375em;
-            background: url("동국대.png");
+            background: url("img/동국대.png");
             background-size: cover;
             margin: 0 auto;
         }
@@ -403,7 +403,7 @@
         }
 
         .donguk_picture1 {
-            background: url("dongukTrash1.jpg");
+            background: url("img/dongukTrash1.jpg");
             background-size: cover;
             width: 16.9375em;
             height: 22.625em;
@@ -411,7 +411,7 @@
         }
 
         .donguk_picture2 {
-            background: url("dongukTrash2.jpg");
+            background: url("img/dongukTrash2.jpg");
             background-size: cover;
             width: 23.9375em;
             height: 15.75em;
@@ -523,7 +523,7 @@
             width: 22.75em;
             height: 17.0625em;
             margin: 2em auto 0;
-            background: url("2\ [캡디]\ 사진_이동학\ 인터뷰.jpg");
+            background: url("img/2\ [캡디]\ 사진_이동학\ 인터뷰.jpg");
             background-size: cover;
         }
     </style>
@@ -637,7 +637,7 @@
             }
         });
     </script>
-    <script type="text/javascript" src="slider.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
     <script>
         $(document).ready(function () {
             $("a[href^='#']").click(function (event) {
@@ -651,12 +651,12 @@
             $('nav').click(function () {
                 if ($('.filter').css('display') == 'none') {
                     $('nav').css({
-                        'background': 'url("hamburger2_white.png")',
+                        'background': 'url("img/hamburger2_white.png")',
                         'background-size': 'cover'
                     });
                 } else {
                     $('nav').css({
-                        'background': 'url("hamburger2.png")',
+                        'background': 'url("img/hamburger2.png")',
                         'background-size': 'cover'
                     });
                 }
@@ -726,7 +726,7 @@
         <div class="letter" id="step1"></div>
         <p class="title">01. 비닐봉투 우체통 이야기</p>
         <p class="subtitle" id="step1_a">A. 재활용도 안되는 비닐봉투</p>
-        <img src="trash.png" class="trash1">
+        <img src="img/trash.png" class="trash1">
         <p class="comment">
             재활용하면 뭐하나<br>비닐봉투의 물질 재활용률 '극악'
         </p>
@@ -893,43 +893,43 @@
                         <div>
                             <h3>배출용 #1</h3>
                         </div>
-                        <img src="비닐우체통시안1.png">
+                        <img src="img/비닐우체통시안1.png">
                     </li>
                     <li>
                         <div>
                             <h3>배출용 #2</h3>
                         </div>
-                        <img src="비닐우체통시안2.png">
+                        <img src="img/비닐우체통시안2.png">
                     </li>
                     <li>
                         <div>
                             <h3>배출용 #3</h3>
                         </div>
-                        <img src="비닐우체통시안3.png">
+                        <img src="img/비닐우체통시안3.png">
                     </li>
                     <li>
                         <div>
                             <h3>배출용 #4</h3>
                         </div>
-                        <img src="비닐우체통시안4.png">
+                        <img src="img/비닐우체통시안4.png">
                     </li>
                     <li>
                         <div>
                             <h3>배출용 #5</h3>
                         </div>
-                        <img src="비닐우체통시안5.png">
+                        <img src="img/비닐우체통시안5.png">
                     </li>
                     <li>
                         <div>
                             <h3>배출용 #6</h3>
                         </div>
-                        <img src="비닐우체통시안6.png">
+                        <img src="img/비닐우체통시안6.png">
                     </li>
                     <li>
                         <div>
                             <h3>배출용 #7</h3>
                         </div>
-                        <img src="비닐우체통시안7.png">
+                        <img src="img/비닐우체통시안7.png">
                     </li>
                 </ul>
                 <!--controls-->
@@ -949,43 +949,43 @@
                         <div>
                             <h3>택배용 #1</h3>
                         </div>
-                        <img src="택배우체통시안1.png">
+                        <img src="img/택배우체통시안1.png">
                     </li>
                     <li>
                         <div>
                             <h3>택배용 #2</h3>
                         </div>
-                        <img src="택배우체통시안2.png">
+                        <img src="img/택배우체통시안2.png">
                     </li>
                     <li>
                         <div>
                             <h3>택배용 #3</h3>
                         </div>
-                        <img src="택배우체통시안3.png">
+                        <img src="img/택배우체통시안3.png">
                     </li>
                     <li>
                         <div>
                             <h3>택배용 #4</h3>
                         </div>
-                        <img src="택배우체통시안4.png">
+                        <img src="img/택배우체통시안4.png">
                     </li>
                     <li>
                         <div>
                             <h3>택배용 #5</h3>
                         </div>
-                        <img src="택배우체통시안5.png">
+                        <img src="img/택배우체통시안5.png">
                     </li>
                     <li>
                         <div>
                             <h3>택배용 #6</h3>
                         </div>
-                        <img src="택배우체통시안6.png">
+                        <img src="img/택배우체통시안6.png">
                     </li>
                     <li>
                         <div>
                             <h3>택배용 #7</h3>
                         </div>
-                        <img src="택배우체통시안7.png">
+                        <img src="img/택배우체통시안7.png">
                     </li>
                 </ul>
                 <div class="btns" id="next2"><i class="fa fa-arrow-right"></i></div>
@@ -1026,15 +1026,15 @@
             <div id="slider-wrap3">
                 <ul id="slider3">
                     <li>
-                        <img src="사용1_1.png">
+                        <img src="img/사용1_1.png">
                         <p class="ex">1. 준비되어있는 비닐봉투를 뽑아주세요</p>
                     </li>
                     <li>
-                        <img src="사용1_2.png">
+                        <img src="img/사용1_2.png">
                         <p class="ex">2. 비닐봉투로 분리수거를 해주세요</p>
                     </li>
                     <li>
-                        <img src="사용1_3.png">
+                        <img src="img/사용1_3.png">
                         <p class="ex">3. 배출할 비닐봉투를 문 앞에 모아주세요</p>
                     </li>
                 </ul>
@@ -1052,11 +1052,11 @@
             <div id="slider-wrap4" class="none">
                 <ul id="slider4">
                     <li>
-                        <img src="사용2_1.png">
+                        <img src="img/사용2_1.png">
                         <p class="ex">1. 밑의 칸을 열어 택배 봉투를 가져가주세요</p>
                     </li>
                     <li>
-                        <img src="사용2_2.png">
+                        <img src="img/사용2_2.png">
                         <p class="ex">2. 준비되어있는 테이프로 밀봉 후 배송합니다</p>
                     </li>
                 </ul>
@@ -1087,11 +1087,11 @@
             <div id="slider-wrap5">
                 <ul id="slider5">
                     <li>
-                        <img src="반납1_1.png">
+                        <img src="img/반납1_1.png">
                         <p class="ex">1. 깨끗한 비닐봉투를 준비해주세요</p>
                     </li>
                     <li>
-                        <img src="반납1_2.png">
+                        <img src="img/반납1_2.png">
                         <p class="ex">2. 비닐봉투 우체통에 넣어주세요</p>
                     </li>
                 </ul>
@@ -1109,11 +1109,11 @@
             <div id="slider-wrap6" class="none">
                 <ul id="slider6">
                     <li>
-                        <img src="반납2_1.png">
+                        <img src="img/반납2_1.png">
                         <p class="ex">1. 택배봉투를 칼로 개봉해주세요</p>
                     </li>
                     <li>
-                        <img src="반납2_2.png">
+                        <img src="img/반납2_2.png">
                         <p class="ex">2. 개봉하신 택배봉투를 우체통에 넣어주세요</p>
                     </li>
                 </ul>
