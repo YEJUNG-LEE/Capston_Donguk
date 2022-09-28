@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href='https://cdn.rawgit.com/kattergil/NotoSerifKR-Web/5e08423b/stylesheet/NotoSerif-Web.css' rel='stylesheet'
+    type='text/css'>
+<link href="https://webfontworld.github.io/naver/MaruBuri.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="visible.js"></script>
+
+<head>
+    <meta name="viewport" charset="utf-8" content="width=device-width initial-scale=1 user-scalable=no">
+    <title>보내는사람, 지구인</title>
+    <style>
+        @import url("slider.css");
+        body {
+            background-color: #E3E3E3;
+            width:100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        p {
+            /* font-family: 'Noto Serif KR', serif; */
+            font-family: 'MaruBuri';
+        }
+
+        .filter {
+            right: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 998;
+            background-color: #363430;
+            display: none;
+            padding-top: 4.4875em;
+        }
+
+        .filter_title {
+            font-size: 1.375em;
+            margin-left: 2.1875em;
+            font-weight: bold;
+            color: #91AA8A;
+            width: 16.25em;
+        }
+
+        .filter_subtitle {
+            font-size: 1.1875em;
+            margin-left: 4.4375em;
+            margin-top: 1.5125em;
+            margin-bottom: 1.5125em;
+            color: #80817f;
+            width: 15em;
+        }
+
+        hr {
+            width: 21.25em;
+            margin-left: 2.1875em;
+            border: 0.0625em solid #767a74;
+            margin-top: 1.375em;
+            margin-bottom: 1.375em;
+        }
+
+        .main {
+            width: 100%;
+            height: 1031px;
+            background: url("그룹 37.png") no-repeat;
+            background-size: cover;
+        }
+
+        .main_title {
+            font-size: 2.8em;
+            font-weight: bold;
+            padding-top: 145px;
+            padding-left: 32px;
+            color: #463C3C;
+        }
+
+        nav {
+            position: fixed;
+            z-index: 999;
+            width: 10%;
+            height: 5%;
+            right: 8px;
+            top: 10px;
+            background: url("hamburger2.png") no-repeat;
+            background-size: cover;
+        }
+
+        .from_title {
+            font-size: 1.25em;
+            padding-top: 36px;
+            padding-right: 42px;
+            line-height: 32px;
+            text-align: right;
+            color: #276B17;
+        }
+
+        .catch_title {
+            font-size: 2.125em;
+            line-height: 56px;
+            font-weight: bold;
+            padding-left: 51px;
+            padding-top: 96px;
+        }
+
+        .step1 {
+            width: 100%;
+            margin-bottom: 4em;
+        }
+
+        .letter {
+            margin: 4.75em auto 1em;
+            width: 3.5em;
+            height: 2.18em;
+            background: url("letter.png") no-repeat;
+            background-size: cover;
+        }
+
+        .title {
+            font-size: 1.5625em;
+            line-height: 34px;
+            font-weight: bold;
+            text-align: center;
+            color: #5E7159;
+            margin-bottom: 4.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #5E7159;
+            font-weight: bold;
+        }
+
+        .trash1 {
+            width: 100%;
+            height: 18.4375em;
+            margin-top: 2.8125em;
+        }
+
+        .comment {
+            margin: 1.20em 0;
+            text-align: center;
+            font-size: 1.25em;
+            color: #276B17;
+            line-height: 32px;
+        }
+
+        .contents {
+            padding-left: 1.375em;
+            padding-right: 0.75em;
+            font-size: 1em;
+            line-height: 1.875em;
+            font-family: 'Noto Serif KR', serif;
+            margin-top: 1.5em;
+            margin-bottom: 1.53em;
+        }
+
+        .step2 {
+            margin-top: 2em;
+            width: 100%;
+            height: 70.625em;
+            background-color: #333333;
+            padding-top: 1.375em;
+        }
+
+        .square {
+            position: static;
+            width: 14.1875em;
+            height: 14.1875em;
+            border: 0.125em solid black;
+            margin: 3.8125em auto;
+            padding: 1.3125em;
+        }
+
+        .plastic_img {
+            width: 11.5625em;
+            height: 11.5625em;
+            background: url("plastic-bag.png");
+            background-size: cover;
+        }
+
+        .img_title {
+            text-align: center;
+            padding-top: 6.5em;
+            color: #378E23;
+            line-height: 1.9375;
+        }
+
+        .white_contents {
+            font-size: 1em;
+            text-align: center;
+            line-height: 2.1875em;
+            color: #DCDCDC;
+        }
+
+        .bold_white_contents {
+            padding-top: 1.875em;
+            font-size: 1.25em;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.875em;
+            color: #DCDCDC;
+        }
+
+        .step2_div {
+            width: 14.5625em;
+            height: 9.875em;
+            margin: 3.875em auto 2em;
+            list-style: none;
+        }
+
+        .step2_div li {
+            float: left;
+        }
+
+        .step2_div1 {
+            width: 6.4375em;
+            height: 9.875em;
+            background: url("그룹 39.png") no-repeat;
+            background-size: cover;
+        }
+        #decrease_img {
+            background-color:#B9B5B4;
+            transition: 2s;
+        }
+
+        .step2_div2 {
+            width: 4.0625em;
+            height: 9.875em;
+            padding-top: 3.4375em;
+        }
+
+        .step2_div2>p {
+            text-align: center;
+            color: #C8C8C8;
+            font-size: 1.875em;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .step2_div3 {
+            width: 4.0625em;
+            height: 9.875em;
+            padding-top: 2.625em;
+        }
+
+        .step2_div3>p {
+            text-align: center;
+            color: #fff;
+            font-size: 2.8125em;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .step3 {
+            padding-top: 3.6875em;
+            width: 100%;
+            height: 58.625em;
+        }
+
+        .use {
+            width: 24.625em;
+            height: 14.125em;
+            margin: 0 auto;
+        }
+
+        .use>li {
+            width: 50%;
+            height: 14.125em;
+        }
+
+        .circle_img1 {
+            width: 9.06em;
+            height: 9.06em;
+            background: url("마스크그룹.png");
+            background-size: cover;
+            border-radius: 100%;
+            border: 1px solid #707070;
+            margin: 1.625em auto 0.75em;
+        }
+
+        .circle_img2 {
+            width: 9.06em;
+            height: 9.06em;
+            background: url("마스크 택배.png");
+            background-size: cover;
+            border-radius: 100%;
+            border: 1px solid #707070;
+            margin: 1.625em auto 0.75em;
+        }
+
+        .circle_p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .step4 {
+            padding-top: 3.6875em;
+            width: 100%;
+        }
+
+        .background_foot {
+            width: 100%;
+            height: 17em;
+            position: relative;
+            background: url("foot.png") no-repeat;
+            background-size: cover;
+            display:none;
+        }
+        #fake_foot{
+            width: 100%;
+            height: 17em;
+            position: relative;
+            background-size: cover;
+            visibility: hidden;
+        }
+
+
+        .on {
+            font-weight: bold;
+            color: white;
+            background-color: #3A9813;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        #d_1 {
+            margin-bottom: 4em;
+        }
+
+        .trash_center {
+            width: 23.5625em;
+            height: 17.6875em;
+            margin: 0 auto;
+            background: url("1\ [캡디]\ 사진_강태영\ 인터뷰.jpg");
+            background-size: cover;
+        }
+
+        .trash_center_div {
+            width: 22.125em;
+            height: 10.625em;
+            margin: 2em auto 2.75em;
+            padding-top: 0.7em;
+            background-color: #fff;
+            border: 0.125em solid #707070;
+            box-shadow: 10px 10px 0 #3B6A20;
+        }
+
+        .trash_center_div>p {
+            padding-left: 1em;
+            margin: 0;
+        }
+
+        .bold_green {
+            color: #3B6A20;
+        }
+
+        .bold_brown {
+            color: #8F5333;
+        }
+
+        .donguk {
+            width: 10.375em;
+            height: 10.375em;
+            background: url("동국대.png");
+            background-size: cover;
+            margin: 0 auto;
+        }
+
+        .pictures {
+            margin-top: 4em;
+            margin-bottom: 4em;
+            width: 100%;
+            height: 52.5em;
+            background-color: #2A2827;
+            padding-top: 1.375em;
+        }
+
+        .pictures>p {
+            font-size: 1.375em;
+            font-family: 'Noto Serif KR', serif;
+            color: #F3F3F3;
+            text-align: center;
+            margin-bottom: 1.875em;
+        }
+
+        .donguk_picture1 {
+            background: url("dongukTrash1.jpg");
+            background-size: cover;
+            width: 16.9375em;
+            height: 22.625em;
+            margin: 0 auto;
+        }
+
+        .donguk_picture2 {
+            background: url("dongukTrash2.jpg");
+            background-size: cover;
+            width: 23.9375em;
+            height: 15.75em;
+            margin: 0 auto;
+        }
+
+        .highlighter {
+            width: 17.5em;
+            height: 2.1875em;
+            background-color: #1D9110;
+            margin: 1.375em auto;
+            padding-top: 0.375em;
+        }
+
+        .highlighter>p {
+            font-size: 1em;
+            font-family: 'Noto Serif KR', serif;
+            color: #000;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .caption {
+            font-size: 0.875em;
+            padding-top: 1em;
+            font-family: 'Noto Serif KR', serif;
+            text-align: center;
+            color: #707070;
+        }
+
+        .hl_yellow {
+            background-color: #EFF965;
+        }
+
+        .hl_lightyellow {
+            background-color: #f1f88a;
+        }
+
+        .redline {
+            border-bottom: 0.0625em solid #D20000;
+        }
+
+        .letterbox_div {
+            width: 23.125em;
+            height: 21em;
+            background: #F8F8F8;
+            margin: 1.75em auto;
+        }
+
+        .selector_div {
+            display: flex;
+            width: 100%;
+            height: 4em;
+            border-bottom: 0.0625em dashed #707070;
+        }
+
+        .selector {
+            margin: 0.75em auto;
+            width: 7.6875em;
+            height: 2.5em;
+            border: 0.0625em solid #707070;
+            border-radius: 1.1875em;
+            font-family: 'Noto Serif KR', serif;
+            padding-top: 0.5625em;
+        }
+
+        .selector>p {
+            text-align: center
+        }
+
+        .letterbox {
+            position: relative;
+            width: 100%;
+            height: 17em;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .ex {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .table {
+            margin-top: 3em;
+            border: 1px solid #707070;
+            border-collapse: collapse;
+        }
+
+        .table td {
+            border: 1px solid #707070;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .table tr td:nth-child(2n-1) {
+            font-size: 1.0625em;
+            font-weight: 500;
+        }
+
+
+        .table tr td:nth-child(2n) {
+            padding: 1em 0.25em;
+        }
+
+        .leedonghak {
+            width: 22.75em;
+            height: 17.0625em;
+            margin: 2em auto 0;
+            background: url("2\ [캡디]\ 사진_이동학\ 인터뷰.jpg");
+            background-size: cover;
+        }
+    </style>
+    <script>
+        var chart1 = false;
+        var chart2 = false;
+        var increase = false;
+        var foot = false;
+        $(document).ready(function () {
+
+            $(window).on('scroll',function() {
+                if (checkVisible($('#bar-chart'))&&!chart1) {
+                    createChart1();
+                    chart1=true;
+                }
+                if (checkVisible($('#doughnut-chart'))&&!chart2){
+                    createChart2();
+                    chart2=true;
+                }
+                if (checkVisible($('#increase_div'))&&!increase){
+                    increasebag();
+                    increase=true;
+                }
+                if (checkVisible($('#d_1'))&&!foot){
+                    $('#fake_foot').css('display', 'none');
+                    $('.background_foot').animate({width:'toggle'},{duration:3000}, 'easeIn');
+                    foot = true;
+                }
+            });
+
+            function checkVisible( elm, eval ) {
+                eval = eval || "object visible";
+                var viewportHeight = $(window).height(), // Viewport Height
+                    scrolltop = $(window).scrollTop(), // Scroll Top
+                    y = $(elm).offset().top,
+                    elementHeight = $(elm).height();   
+                
+                if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+                if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+            }
+
+            function createChart1(){
+                new Chart(document.getElementById("bar-chart-horizontal"), {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: ["Pet병", "플라스틱 컵", "비닐봉투"],
+                                datasets: [{
+                                    label: "(억)",
+                                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f"],
+                                    data: [49, 33, 235]
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: '한국인 쓰레기 연간 소비량'
+                                }
+                            }
+                        });
+            }
+            function createChart2(){
+                var myChart = new Chart(document.getElementById("doughnut"), {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['시스템 개선 필요', '불필요'],
+                                datasets: [{
+                                    data: [96.1, 3.9],
+                                    backgroundColor: [
+                                        '#3CAFEB',
+                                        '#EB6F80'
+                                    ],
+                                    borderWidth: 0,
+                                    scaleBeginAtZero: true,
+                                }]
+                            },
+                        });
+            }
+            function increasebag(){
+                $({ val : 0/*시작숫자*/ }).animate({ val : 1500/*종료숫자*/ }, {
+                            duration: 3000,
+                            step: function() {
+                                var num = numberWithCommas(Math.floor(this.val));
+                                $("#increase").text(num);
+                            },
+                            complete: function() {
+                                var num = numberWithCommas(Math.floor(this.val));
+                                $("#increase").text('n');
+                            }
+                        });
+                        $({ val : 1500/*시작숫자*/ }).animate({ val : 0/*종료숫자*/ }, {
+                            duration: 3000,
+                            step: function() {
+                                var num = numberWithCommas(Math.floor(this.val));
+                                $("#decrease").text(num);
+                            },
+                            complete: function() {
+                                var num = numberWithCommas(Math.floor(this.val));
+                                $("#decrease").text('0');
+                                // $('#decrease_img').css('background', '#b9b5b4');
+                                // $('#decrease_img').animate({backgroundColor:'#333333'},300);
+                            }
+                        },'ease-in-out');
+            }
+            
+
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+        });
+    </script>
+    <script type="text/javascript" src="slider.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a[href^='#']").click(function (event) {
+                event.preventDefault();
+                var target = $(this.hash);
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 500);
+            });
+
+            $('nav').click(function () {
+                if ($('.filter').css('display') == 'none') {
+                    $('nav').css({
+                        'background': 'url("hamburger2_white.png")',
+                        'background-size': 'cover'
+                    });
+                } else {
+                    $('nav').css({
+                        'background': 'url("hamburger2.png")',
+                        'background-size': 'cover'
+                    });
+                }
+                $('.filter').animate({
+                    width: "toggle"
+                }, "easeIn");
+            });
+            $('a').click(function () {
+                $('.filter').animate({
+                    width: "toggle"
+                }, "easeIn");
+
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <nav></nav>
+    <div class="filter">
+        <a href="#step1">
+            <p class="filter_title">01. 비닐봉투 우체통 이야기</p>
+        </a>
+        <a href="#step1_a">
+            <p class="filter_subtitle">A. 재활용도 안되는 비닐봉투</p>
+        </a>
+        <a href="#step1_b">
+            <p class="filter_subtitle">B. 재활용이 아닌 재사용</p>
+        </a>
+        <a href="#step1_c">
+            <p class="filter_subtitle">C.장바구니를 사용하면 안돼?</p>
+        </a>
+        <a href="#step1_d">
+            <p class="filter_subtitle">D.우리의 마음이 닿을 곳, 동국</p>
+        </a>
+        <hr>
+        <a href="#step2">
+            <p class="filter_title">02. 비닐봉투 우체통을 소개합니다</p>
+        </a>
+        <a href="#step2_a">
+            <p class="filter_subtitle">A. 두 개의 우체통</p>
+        </a>
+        <a href="#step2_b">
+            <p class="filter_subtitle">B. 마음을 전달하는 방법</p>
+        </a>
+        <a href="#step2_c">
+            <p class="filter_subtitle">C. 활동 메뉴얼</p>
+        </a>
+        <hr>
+        <a href="#step3">
+            <p class="filter_title">03. 비닐봉투 우체통이 실현된다면</p>
+        </a>
+        <a href="#step3_a">
+            <p class="filter_subtitle">A. 기대되는 점</p>
+        </a>
+        <a href="#step3_b">
+            <p class="filter_subtitle">B. 향후 목표</p>
+        </a>
+    </div>
+    <div class="main">
+        <p class="main_title">비닐봉투 우체통</p>
+        <p class="from_title">받는 사람, 지구<br>보내는 사람, 동국인</p>
+        <p class="catch_title"><span style="color:#276B17">지구</span>에게<br>마음을<br>전하세요</p>
+    </div>
+    <div class="step1">
+        <div class="letter" id="step1"></div>
+        <p class="title">01. 비닐봉투 우체통 이야기</p>
+        <p class="subtitle" id="step1_a">A. 재활용도 안되는 비닐봉투</p>
+        <img src="trash.png" class="trash1">
+        <p class="comment">
+            재활용하면 뭐하나<br>비닐봉투의 물질 재활용률 '극악'
+        </p>
+        <p class="contents">
+            환경오염이 낳은 초자연적인 재앙들은 나날이 그 심각성이 고조되고 있다. 단숨에 지구인의 뜨거운 감자로 부상한 환경이슈, 환경보호 활동은 더 이상 선택의 영역이 아니라 생존과 직결된, 필수의
+            영역으로 돌입한 것이다.
+            <p class="contents">
+                그러나 그린피스가 발표한 한국인 쓰레기 연간 소비량에 따르면 한국인의 PET병, 플라스틱 컵, 비닐봉투 소비량은 각각 49억개, 33억개, 235억개, 전체 연간 소비량 586,500t
+                중 배출된 쓰레기가 물질재활용 되는 비율은 20%가 조금 넘는 것으로 파악됐다.
+            </p>
+            <canvas id="bar-chart-horizontal" width="100%" height="60%"></canvas>
+            <p class="contents" id="bar-chart">
+                특히 한반도 70%를 뒤덮고도 남는 양적 우위의 비닐봉투는 보통 식품 포장재에서 발생한 것이었는데, 물질재활용률은 극악으로 보통 소각해 에너지 회수 방식으로 재활용되고 있었다. 심지어
+                생분해 비닐봉투조차 소각된다.<br>
+            </p>
+            <p class="contents">
+                봉투의 소각률이 높은 이유는 오염률이 높아 선별과 재활용이 까다롭기 때문이었다. 이러한 방식은 이상적인 폐기물처리법과는 거리가 멀다.
+            </p>
+    </div>
+    <div class="step2" id="step1_b">
+        <p class="subtitle" style="color:#4DD22A">B. 재활용이 아닌 재사용</p>
+        <div class="square">
+            <div class="plastic_img">
+                <p class="img_title">
+                    처치곤란 비닐봉투,<br>
+                    재활용방법은 없을까?
+                </p>
+            </div>
+        </div>
+        <p class="white_contents">
+            앞서 설명했듯, 비닐봉투는 재활용하기엔<br>
+            너무나 제약조건이 많다.
+        </p>
+        <p class="bold_white_contents">
+            그렇다면, "재사용"하면 어떨까?
+        </p>
+        <ul class="step2_div" id="increase_div">
+            <li class="step2_div1"></li>
+            <li class="step2_div2">
+                <p>X</p>
+            </li>
+            <li class="step2_div3">
+                <p id="increase">1</p>
+            </li>
+        </ul>
+        <p class="white_contents">비닐봉투를 한 번이라도 재사용한다면<br>
+            생산량을 줄일 수 있어 확실한 환경보호가 가능하다</p>
+        
+        <ul class="step2_div" id="decrease_div">
+            <li class="step2_div1" id="decrease_img"></li>
+            <li class="step2_div2">
+                <p>=</p>
+            </li>
+            <li class="step2_div3">
+                <p id="decrease">n</p>
+            </li>
+        </ul>
+    </div>
+    <div class="step3" id="step1_c">
+        <p class="subtitle">C. 장바구니를 사용하면 안돼?</p>
+        <p class="contents" style="padding-top:2em">
+            현재도 비닐봉투를 대체하기 위해<br>
+            수많은 다회용 장바구니가 생산되고 있다.<br>
+            <br><b>
+                그런데도 일회용 비닐봉투가 쓰이는 이유는 <br>
+                다회용 장바구니가 대안되기 어려운 영역이 있기 때문이라 판단했다.<br></b>
+            <br>
+            일방향 운반 목적의 음식 배달과 택배가 대표적인 예다.
+        </p>
+        <p class="contents">
+            이에 본 조는 일회용 배달 봉투와 택배 봉투의 재사용 방법을 고안했다. 단 2회라도 재사용하자는 목표로<br>
+            다음과 같이 기획하였다.<br>
+            <br>
+            <b style="font-size:1.25em">
+                1. 배달 봉투 등으로 쓰레기 분리수거·배출<br>
+                <br>
+                2. 택배 봉투 재사용
+            </b>
+        </p>
+        <ul class="use">
+            <li style="border:0.0625em solid #707070">
+                <div class="circle_img1"></div>
+                <p class="circle_p">분리수거 배출</p>
+            </li>
+            <li
+                style="border-top:0.0625em solid #707070; border-right:0.0625em solid #707070; border-bottom:0.0625em solid #707070;">
+                <div class="circle_img2"></div>
+                <p class="circle_p">택배봉투 재사용</p>
+            </li>
+        </ul>
+    </div>
+    <div class="step4" id="step1_d">
+        <div id="fake_foot"></div>
+        <div class="background_foot"></div>
+        <p class="subtitle" id="d_1">D. 우리의 마음이 닿을 곳, 동국</p>
+        <p class="contents">
+            비닐봉투 재사용 아이디어를 적용할 대상을 찾고자 쓰레기연구소·쓰레기센터에게 수차례 자문과 조언을 받았다.
+        </p>
+        <div class="trash_center"></div>
+        <div class="trash_center_div">
+            <p class="contents">
+                "가장 중요한 것은 구체성이에요. 이 아이디어가 현 상황에서 시행가능한지, 그리고 공감대를 끌어올 수 있는지, 그리고 그것을 유지할 수 있는지 생각해보면 좋을 것같아요."
+            </p>
+            <p class="contents" style="font-size:0.875em; margin-top:0.25em; text-align: right;">
+                - 중구청 쓰레기연구소 새롬 전 담당관 -
+            </p>
+        </div>
+        <p class="contents">
+            조언을 토대로 <b class="bold_green">1) 시행 가능성 2) 참여 가능성 3) 관리 가능성</b>을 고려하여
+            <b class="bold_brown">서울동국대학교</b>를
+            대상으로 조사를 시작하였다.
+        </p>
+        <div class="donguk"></div>
+        <div class="pictures">
+            <p>동국대학교 내부</p>
+            <div class="donguk_picture1"></div>
+            <div class="highlighter">
+                <p>쓰레기가 무분별하게 버려지고 있다.</p>
+            </div>
+            <div class="donguk_picture2"></div>
+        </div>
+        <p class="contents">
+            조사결과, 동국대학교 내부 쓰레기 문제가 꽤나 심각하다는 것을 알 수 있었다.<br>
+            학교 내 쓰레기통 대부분이 일반 쓰레기, 재활용 표기가 없다. 학내 표기 없는 쓰레기통은 대략 실외 16개, 실내 50개로 총 66개가 존재한다. 이러한 표기 없는 쓰레기통 안에서 일반 쓰레기와
+            뒤섞인 재활용 쓰레기는 이물질로 오염돼 분리수거가 어렵다. <br>
+            <br>
+            이를 통해 동국대학교내에서의 <b class="bold_green hl_yellow">1) 시행 가능성</b>을 재고할 수 있었다.<br>
+            <br>
+            <i class="redline">이러한 현 상황을 학생들은 어떻게 생각하고 있을까.</i><br>
+            <br>
+            2021년 11월, 학내 환경 소모임 필어스가 진행한 자체 설문조사 결과, 전체 응답자 중 96.1%는 학내 분리수거 시스템 개선이 필요하다고 답했고, 분리수거를 하지 않는 이유로 39.4%가
+            ‘분리수거함이 어디 있는지 잘 몰라서’, 38.1%가 ‘쓰레기가 구분 없이 버려지는 등 관리가 부실해서’라고 밝혔다.
+            <br><br><br>
+        </p>
+    </div>
+    <canvas id="doughnut" width="100%" height="60%"></canvas>
+    <p class="caption" id="doughnut-chart">필어스(동국대학교) 자체 설문조사(2021, 11월)</p>
+    <p class="contents">
+        <br><br>
+        필어스의 조사를 통해 우리학교 구성원은 미흡한 분리수거 시스템으로 인해 야기되는 학내 쓰레기 문제를 명확히 인지하고 있으며 이를 개선하고자 하는 의지 또한 충분하다는 것을 알 수 있었다.<br>
+        <br>
+        이를 통해 <b class="bold_green hl_yellow">2) 참여 가능성</b> 또한 재고 할 수 있었다. 동국대학교에서 실현 가능성은 충분했다.<br>
+        <br>
+        하지만, 어떻게 비닐봉투 재사용을 유지시킬 수 있을지에 대해서는 온전히 우리의 생각으로만 해결을 해야했다.<br>
+        <br>
+        <b>그래서 우리는, 비닐봉투 우체통을 기획하였다.</b></p>
+    </p>
+    <div class="letter" id="step2"></div>
+    <p class="title">02. 비닐봉투 우체통을 소개합니다</p>
+    <p class="subtitle" id="step2_a">A. 두 개의 우체통</p>
+    <div class="letterbox_div">
+        <div class="selector_div">
+            <div class="selector first on">
+                <p>Ⅰ 유형</p>
+            </div>
+            <div class="selector second">
+                <p>Ⅱ 유형</p>
+            </div>
+        </div>
+        <div class="letterbox">
+            <div id="slider-wrap1">
+                <ul id="slider1">
+                    <li>
+                        <div>
+                            <h3>배출용 #1</h3>
+                        </div>
+                        <img src="비닐우체통시안1.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>배출용 #2</h3>
+                        </div>
+                        <img src="비닐우체통시안2.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>배출용 #3</h3>
+                        </div>
+                        <img src="비닐우체통시안3.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>배출용 #4</h3>
+                        </div>
+                        <img src="비닐우체통시안4.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>배출용 #5</h3>
+                        </div>
+                        <img src="비닐우체통시안5.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>배출용 #6</h3>
+                        </div>
+                        <img src="비닐우체통시안6.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>배출용 #7</h3>
+                        </div>
+                        <img src="비닐우체통시안7.png">
+                    </li>
+                </ul>
+                <!--controls-->
+                <div class="btns" id="next1"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous1"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter1"></div>
+
+                <div id="pagination-wrap1">
+                    <ul>
+                    </ul>
+                </div>
+                <!--controls-->
+            </div>
+            <div id="slider-wrap2" class="none">
+                <ul id="slider2">
+                    <li>
+                        <div>
+                            <h3>택배용 #1</h3>
+                        </div>
+                        <img src="택배우체통시안1.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>택배용 #2</h3>
+                        </div>
+                        <img src="택배우체통시안2.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>택배용 #3</h3>
+                        </div>
+                        <img src="택배우체통시안3.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>택배용 #4</h3>
+                        </div>
+                        <img src="택배우체통시안4.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>택배용 #5</h3>
+                        </div>
+                        <img src="택배우체통시안5.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>택배용 #6</h3>
+                        </div>
+                        <img src="택배우체통시안6.png">
+                    </li>
+                    <li>
+                        <div>
+                            <h3>택배용 #7</h3>
+                        </div>
+                        <img src="택배우체통시안7.png">
+                    </li>
+                </ul>
+                <div class="btns" id="next2"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous2"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter"></div>
+
+                <div id="pagination-wrap1">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="contents">
+        지구인의 마음을 일회용 비닐/택배 봉투에 담아 지구에게 보낸다는 의미에서 우체통 콘셉트를 선정했다.<br>
+        <br>
+        우체통은 2가지 유형으로, 쓰레기통의 근처에 비치될 부착형의 1유형과 기숙사 내 택배 보관함과 동국대점 우체국에 비치될 기립형의 2유형으로 구성된다. <br>
+        <br>
+        우체통 정면 및 포스터에 부착된 QR코드를 사용자의 휴대폰 카메라에 인식하면 본 프로젝트의 기획과정과 내용, 사용방법 등을 담은 웹 전시 홈페이지로 연결된다. 이때 우체통과 포스터 및 QR코드는
+        친환경(각각 폐플라스틱 또는 폐현수막, 재생용지)으로 제작된다. <br>
+        <br>
+        이의 제작은 플라스틱 베이커리(쓰레기센터가 추천한 업사이클링 업체) 또는 동국대 내 3D프린팅 실습소인 MARU에서 수행한다. MARU에서 수행할 경우 학생들이 직접 우체통을 만드는 실습 프로그램을
+        운영하여 본 프로젝트에 대한 참여율 제고 및 MARU 활성화를 고무한다. 덧붙여 포스터 및 비닐봉투우체통의 시제품은 웹 전시 및 마포구청사에 전시될 계획이다. 전시라는 예술적 장치를 활용해 학생 및
+        시민의 강력한 공감을 이끌어내, 참여를 독려하고자 한다.
+    </p>
+    <p class="subtitle" id="step2_b" style="margin-top:5em; margin-bottom:3em;">B. 마음을 전달하는 법</p>
+    <p class="contents">사용시</p>
+    <div class="letterbox_div" style="margin-bottom:7em;">
+        <div class="selector_div">
+            <div class="selector on">
+                <p>Ⅰ 유형</p>
+            </div>
+            <div class="selector">
+                <p>Ⅱ 유형</p>
+            </div>
+        </div>
+        <div class="letterbox">
+            <div id="slider-wrap3">
+                <ul id="slider3">
+                    <li>
+                        <img src="사용1_1.png">
+                        <p class="ex">1. 준비되어있는 비닐봉투를 뽑아주세요</p>
+                    </li>
+                    <li>
+                        <img src="사용1_2.png">
+                        <p class="ex">2. 비닐봉투로 분리수거를 해주세요</p>
+                    </li>
+                    <li>
+                        <img src="사용1_3.png">
+                        <p class="ex">3. 배출할 비닐봉투를 문 앞에 모아주세요</p>
+                    </li>
+                </ul>
+                <!--controls-->
+                <div class="btns" id="next3"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous3"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter3"></div>
+
+                <div id="pagination-wrap3">
+                    <ul>
+                    </ul>
+                </div>
+                <!--controls-->
+            </div>
+            <div id="slider-wrap4" class="none">
+                <ul id="slider4">
+                    <li>
+                        <img src="사용2_1.png">
+                        <p class="ex">1. 밑의 칸을 열어 택배 봉투를 가져가주세요</p>
+                    </li>
+                    <li>
+                        <img src="사용2_2.png">
+                        <p class="ex">2. 준비되어있는 테이프로 밀봉 후 배송합니다</p>
+                    </li>
+                </ul>
+                <!--controls-->
+                <div class="btns" id="next4"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous4"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter4"></div>
+
+                <div id="pagination-wrap4">
+                    <ul>
+                    </ul>
+                </div>
+                <!--controls-->
+            </div>
+        </div>
+    </div>
+    <p class="contents">반납시</p>
+    <div class="letterbox_div" style="margin-bottom:7em;">
+        <div class="selector_div">
+            <div class="selector on">
+                <p>Ⅰ 유형</p>
+            </div>
+            <div class="selector">
+                <p>Ⅱ 유형</p>
+            </div>
+        </div>
+        <div class="letterbox">
+            <div id="slider-wrap5">
+                <ul id="slider5">
+                    <li>
+                        <img src="반납1_1.png">
+                        <p class="ex">1. 깨끗한 비닐봉투를 준비해주세요</p>
+                    </li>
+                    <li>
+                        <img src="반납1_2.png">
+                        <p class="ex">2. 비닐봉투 우체통에 넣어주세요</p>
+                    </li>
+                </ul>
+                <!--controls-->
+                <div class="btns" id="next5"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous5"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter5"></div>
+
+                <div id="pagination-wrap5">
+                    <ul>
+                    </ul>
+                </div>
+                <!--controls-->
+            </div>
+            <div id="slider-wrap6" class="none">
+                <ul id="slider6">
+                    <li>
+                        <img src="반납2_1.png">
+                        <p class="ex">1. 택배봉투를 칼로 개봉해주세요</p>
+                    </li>
+                    <li>
+                        <img src="반납2_2.png">
+                        <p class="ex">2. 개봉하신 택배봉투를 우체통에 넣어주세요</p>
+                    </li>
+                </ul>
+                <!--controls-->
+                <div class="btns" id="next6"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous6"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter6"></div>
+
+                <div id="pagination-wrap6">
+                    <ul>
+                    </ul>
+                </div>
+                <!--controls-->
+            </div>
+        </div>
+    </div>
+    <p class="subtitle" style="margin-top:4em;" id="step2_c">C. 활동 메뉴얼 </p>
+    <table class="table">
+        <colgroup>
+            <col width="25%" style="vertical-align:middle;">
+            <col width="75%">
+        </colgroup>
+        <tr>
+            <td style="text-align:center;">학생</td>
+            <td>
+                ㉠ 교내, 기숙사 내 쓰레기를 재사용 비닐봉투에 분리수거 해 쓰레기통에 버린다.<br>
+                ㉡ 택배 발송 시 재사용 택배봉투를 이용한다.<br>
+                ㉢ 에코리더 학생은 이를 운영·관리한다.
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center; ">청소노동자</td>
+            <td>기존 방식처럼 이를 통째로 1개의 포대자루에 담아 수거한다.</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">총무처</td>
+            <td>이를 위한 제반 업무를 수행하며 특히 에코리더 운영·관리를 전담한다.</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">교내 구성원</td>
+            <td>쓰레기 특별 교육을 이수하여 사안의 심각성, 개선의 시급성을 충분히 인지하고 본 프로젝트에 성실히 참여한다. 2022.08.23. 인터뷰에서 쓰레기센터 이동학 대표는 해당 프로젝트가
+                캠퍼스 사업으로 선정될 경우, 교육할 의향이 있다고 밝혔다.</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">기타</td>
+            <td>사업 확정시 2022년 9월부터 이행</td>
+        </tr>
+    </table>
+    <div class="letter" id="step3"></div>
+    <p class="title">03. 비닐봉투 우체통이 실현된다면</p>
+    <p class="subtitle" id="step3_a">A. 기대되는 점</p>
+    <p class="contents">
+        1. 기존의 분리수거함과 달리 학생들이 분리해 모은 쓰레기 봉지만을 수거하면 되므로, 청소노동자가 쓰레기봉지를 꺼내고, 다시 끼우는 반복 작업을 하지 않아도 되기 때문에 <b
+            class="bold_green hl_lightyellow">비교적 노동 강도가 덜 하다.</b><br>
+        <br>
+        2. 교내 무분별한 쓰레기 배출 개선을 통해 쓰레기 분리수거 및 배출의 <b class="bold_green hl_lightyellow">절차 축소와 비용 절감</b>을 기대할 수 있다.<br>
+        <br>
+        3. 웹 전시를 통해 본 프로젝트의 기획과정과 내용, 그리고 동국대 내 사업 결과를 대내외로 선전함으로써 <b class="bold_green hl_lightyellow">에코 대학의
+            선발주자</b>로서
+        동국대학교의 위상을 드높일 수 있다. (어차피 해야 할 일이라면 솔선수범하여 에코 대학의 이미지를 선취해 이미지를 제고하는 것이 유리하다.)<br>
+        <br>
+        4. 동국대학교의 환경보호 활동은 곧 에코 중구로 나아가는 발판이 되어, <b class="bold_green hl_lightyellow">지역사회에 생기와 활력</b>을 불어넣는 중요한 기회가 될 수
+        있다.
+        <br>
+        <br>
+        5. 일상 속 환경보호 활동을 실천하며 <b class="bold_green hl_lightyellow">시민의식을 함양</b>하고, 환경의 소중함을 일깨울 수 있다.
+    </p>
+    <p class="subtitle" style="margin-top:6em;" id="step3_b">B. 향후 목표</p>
+    <p class="contents">
+        "비닐봉투 재사용"이라는 메시지는 동국대에서만 국한될 것이 아니다. 범위를 더욱 확대하여 전국의 캠퍼스와 일반 시민들도 참여할 수 있는 프로젝트가 되는것이 본 조의 목표다.
+    </p>
+    <div class="leedonghak"></div>
+    <p class="caption">민주당 전 최고위원 이동학 의원과의 인터뷰</p>
+    <p class="contents">
+        22.08.23. 인터뷰에서 쓰레기센터 대표이자 민주당 전 최고위원 이동학 의원 및 그 소속 직원은,
+        재미있는 발상이라는 평가와 함께, 해당 프로젝트를 구체화해 캠퍼스 사업으로 선정된다면, 이의 사업 결과 및 평가 내용을 바탕으로 교육부 또는 환경부의 사업에 공모해 추가 예산을 지원받을 수 있을
+        것이라고 첨언했다.<br>
+        <br>
+        우리의 행동이 작은 움직임일지라도, 큰 변화를 일으키는 도미노의 시작점이 되기를 기원한다.
+    </p>
+</body>
+
+</html>
